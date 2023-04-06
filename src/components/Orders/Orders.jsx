@@ -4,7 +4,7 @@ import { useLoaderData } from 'react-router-dom';
 import Product from '../Product/Product';
 import ReviewItem from '../ReviewItem/ReviewItem';
 import './Orders.css'
-import { removeFromDb } from '../../utilities/fakedb';
+import { deleteShoppingCart, removeFromDb } from '../../utilities/fakedb';
 
 const Orders = () => {
     const savedCart = useLoaderData();
@@ -13,8 +13,14 @@ const Orders = () => {
     const handleRemoveFromCart = (id)=>{
         // we will use filter cz we need all data and skip just 1 -------------------------
         const remaining = cart.filter(product=> product.id !== id);
-        setCart= (remaining);
+        console.log(remaining)
+        setCart= remaining;
         removeFromDb(id)
+    }
+
+    const handleClearCart = ()=>{
+        setCart([]);
+        deleteShoppingCart()
     }
 
     return (
@@ -26,6 +32,7 @@ const Orders = () => {
                 key={Product.id}
                 Product={Product}
                 handleRemoveFromCart={handleRemoveFromCart}
+                handleClearCart = {handleClearCart}
                 ></ReviewItem>)
             }
             </div>
