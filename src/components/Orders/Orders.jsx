@@ -7,21 +7,21 @@ import './Orders.css'
 
 const Orders = () => {
     const savedCart = useLoaderData();
-    const [] = useState(savedCart)
+    const [cart, getCart] = useState(savedCart)
     // console.log(cart)
     return (
         <div className='shop-container'>
             <div className='review-container'>
             <h1>Orders Page: {savedCart.length}</h1>
             {
-                savedCart.map(Product=> <ReviewItem
+                cart.map(Product=> <ReviewItem
                 key={Product.id}
                 Product={Product}
                 ></ReviewItem>)
             }
             </div>
             <div className='cart-container'>
-                <Cart cart={savedCart}></Cart>
+                <Cart cart={cart}></Cart>
             </div>
         </div>
     );
