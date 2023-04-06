@@ -4,7 +4,7 @@ import './Cart.css'
 const Cart = ({cart}) => { /* op3 */
     // const cart = props.cart  /* op1 */
     // const {cart} = props /* opt 2 */
-    console.log(cart)
+    // console.log(cart)
     let totalPrice = 0;
     let totalShipping = 0;
     let quantity = 0;
