@@ -8,7 +8,11 @@ import './Orders.css'
 const Orders = () => {
     const savedCart = useLoaderData();
     const [cart, getCart] = useState(savedCart)
-    // console.log(cart)
+
+    const handleRemoveFromCart = (id)=>{
+        // console.log(id)
+    }
+
     return (
         <div className='shop-container'>
             <div className='review-container'>
@@ -17,6 +21,7 @@ const Orders = () => {
                 cart.map(Product=> <ReviewItem
                 key={Product.id}
                 Product={Product}
+                handleRemoveFromCart={handleRemoveFromCart}
                 ></ReviewItem>)
             }
             </div>
